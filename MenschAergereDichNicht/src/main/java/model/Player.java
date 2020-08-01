@@ -6,19 +6,23 @@ import enums.EColor;
 
 public class Player {
 	private ArrayList<Figure> FigureList;
-	private EColor color;
+	private int color;
 	
-	public Player(EColor c) {
+	public Player(int c) {
 		this.setColor(c);
 		FigureList = new ArrayList<Figure>();
 		this.setFigureList(FigureList);
 	}
+		
+	public int roleDice() {
+		return (int)(Math.random() * 6)+1;
+	}
 	
-	public EColor getColor() {
+	public int getColor() {
 		return color;
 	}
 
-	private void setColor(EColor color) {
+	private void setColor(int color) {
 		this.color = color;		
 	}
 
