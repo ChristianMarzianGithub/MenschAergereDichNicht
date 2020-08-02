@@ -12,10 +12,24 @@ public class Player {
 		this.setColor(c);
 		FigureList = new ArrayList<Figure>();
 		this.setFigureList(FigureList);
+		
+		addFiguresAndPlacethemInStart(this.FigureList);
 	}
 		
+	private void addFiguresAndPlacethemInStart(ArrayList<Figure> figureList) {
+		
+	}
+
 	public int roleDice() {
 		return (int)(Math.random() * 6)+1;
+	}
+	
+	public int moveFigure(Figure choosenFigure, int amountOfStepsForward) {
+		return 0;
+	}
+	
+	public Figure getRandomFigure(ArrayList<Figure> figureList){
+		return null;
 	}
 	
 	public int getColor() {
