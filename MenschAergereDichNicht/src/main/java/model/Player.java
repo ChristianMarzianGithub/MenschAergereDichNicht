@@ -3,41 +3,72 @@ package model;
 import java.util.ArrayList;
 
 import enums.EColor;
+import model.BordArea.BoardAreaFactory;
 
 public class Player {
 	private ArrayList<Figure> FigureList;
 	private int color;
+	private final int maxNumberOfFigures = 4; 
 	
-	public Player(int c) {
-		this.setColor(c);
+	
+	public Player(int color) {
+		this.setColor(color);
 		FigureList = new ArrayList<Figure>();
 		this.setFigureList(FigureList);
-		
-		addFiguresAndPlacethemInStart(this.FigureList);
+		this.initFigureList(this.getFigureList());		
 	}
 		
+	private void initFigureList(ArrayList<Figure> figureList) {
+		for(int i = 1;i <=  maxNumberOfFigures; i++) {
+			figureList.add	(
+								new Figure	(
+												new Position(
+																i, 
+																new BoardAreaFactory().getBoardArea("START")
+															)
+											)
+							);
+		}
+	}
+
 	private void addFiguresAndPlacethemInStart(ArrayList<Figure> figureList) {
-		
+		for(int i=0; i<4; i++) {
+			figureList.add(
+							new Figure(
+										new Position(
+														i,
+														new BoardAreaFactory().getBoardArea("START")
+													)
+										)
+							);
+		}
 	}
 
 	public int roleDice() {
 		return (int)(Math.random() * 6)+1;//we have to add 1 because otherwise it would get eventually to 0
 	}
 	
-	public int moveFigure(Figure choosenFigure, int amountOfStepsForward) {
+	public void tryToMoveFigure(Figure choosenFigure, int amountOfStepsForward) {
+		Position p = choosenFigure.getPosistion();
+		System.out.println(amountOfStepsForward);
 		
+		if( p.getBoardArea().getClass().getSimpleName().equalsIgnoreCase("StartArea")  && amountOfStepsForward == 6){
+			System.out.println("rausrücken");
+			choosenFigure.goInField();
+		}
 		
+		if( p.getBoardArea().getClass().getSimpleName().equalsIgnoreCase("FIeldArea")){
+			System.out.println("Move on Field");
+		}
 		
-		choosenFigure.getPosistion().setFieldNr(choosenFigure.getPosistion().getFieldNr() + amountOfStepsForward);
+		if( p.getBoardArea().getClass().getSimpleName().equalsIgnoreCase("FIeldArea")){
+			System.out.println("Move in Finish");
+		}
 		
-		
-		
-		
-		return 0;
 	}
 	
 	public Figure getRandomFigure(ArrayList<Figure> figureList){
-		return null;
+		return figureList.get((int) (Math.random() * 4));
 	}
 	
 	public int getColor() {
@@ -53,6 +84,6 @@ public class Player {
 	}
 
 	public void setFigureList(ArrayList<Figure> figureList) {
-		FigureList = figureList;
+		this.FigureList = figureList;
 	}
 }

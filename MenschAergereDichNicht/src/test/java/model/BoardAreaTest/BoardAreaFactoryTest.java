@@ -21,7 +21,7 @@ public class BoardAreaFactoryTest {
 	public void BoardFactoryWaitingAreaTest() {
 		
 		BoardAreaFactory boardAreaFactory = new BoardAreaFactory();
-		BoardArea waitingArea = boardAreaFactory.getBoardArea("WAITING");
+		BoardArea waitingArea = boardAreaFactory.getBoardArea("START");
 		
 		assertTrue(waitingArea.getSizeOfFields() == 4);		
 	}

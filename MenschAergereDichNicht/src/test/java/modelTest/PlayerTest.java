@@ -6,8 +6,6 @@ import org.junit.Test;
 
 import enums.EColor;
 import model.Player;
-import model.BordArea.BoardArea;
-import model.BordArea.BoardAreaFactory;
 
 public class PlayerTest {
 
@@ -23,6 +21,37 @@ public class PlayerTest {
 		assertTrue(retVal);
 	}
 	
+	@Test
+	public void initFigureListTestFigureListNotNull() {
+		Player sut = new Player(EColor.Black);
+		assertTrue(sut.getFigureList() != null);
+	}
+	@Test
+	public void initFigureListTestPositionNotNull() {
+		Player sut = new Player(EColor.Black);		
+		assertTrue(sut.getFigureList().get(0).getPosistion() != null);
+	}	
+	@Test
+	public void initFigureListTestPositionFieldNrBiggerThanZero() {
+		Player sut = new Player(EColor.Black);		
+		assertTrue(sut.getFigureList().get(0).getPosistion().getFieldNr() > 0);
+	}	
+	@Test
+	public void initFigureListTestPositionBoardAreaNotNull() {
+		Player sut = new Player(EColor.Black);		
+		assertTrue(sut.getFigureList().get(0).getPosistion().getBoardArea() != null);
+	}
+	@Test
+	public void initFigureListTestPositionBoardAreaNotEmpty() {
+		Player sut = new Player(EColor.Black);		
+		assertTrue(sut.getFigureList().get(0).getPosistion().getBoardArea().getSizeOfFields() >= 4);
+	}	
 	
+	@Test
+	public void tryToMoveFigureTest() {
+		Player sut = new Player(EColor.Black);		
+		sut.tryToMoveFigure(sut.getRandomFigure(sut.getFigureList()), sut.roleDice());
+		assertTrue(false);
+	}
 	
 }

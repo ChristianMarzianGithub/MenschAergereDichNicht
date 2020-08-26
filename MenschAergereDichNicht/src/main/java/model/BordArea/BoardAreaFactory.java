@@ -12,11 +12,11 @@ public class BoardAreaFactory {
 		if(BoardAreaType.equalsIgnoreCase("FINISH")) {
 			return new FinishArea(EBoardAreaSize.FinishAreaSize);
 		}
-		if(BoardAreaType.equalsIgnoreCase("WAITING")) {
-			return new WaitingArea(EBoardAreaSize.WaitingAreaSize);
+		if(BoardAreaType.equalsIgnoreCase("START")) {
+			return new StartArea(EBoardAreaSize.StartAreaSize);
 		}
 		if(BoardAreaType.equalsIgnoreCase("FIELD")) {
-			return new FieldArea(EBoardAreaSize.FIeldAreaSize);
+			return new FieldArea(EBoardAreaSize.FieldAreaSize);
 		}
 				
 		return null;

@@ -7,7 +7,7 @@ public class Board {
 	private ArrayList<Player> listOfPlayer;
 	
 	public Board() {
-		
+		listOfPlayer = new ArrayList<Player>();
 	}
 	
 	

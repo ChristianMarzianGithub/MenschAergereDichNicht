@@ -2,20 +2,22 @@ package model;
 
 public class Figure {
 		
-	private Position posistion;
+	private Position position;
 	
 	public Figure(Position p) {
 		this.setPosistion(p);
 	}
 
 	public Position getPosistion() {
-		return posistion;
+		return position;
 	}
 
 	public void setPosistion(Position posistion) {
-		this.posistion = posistion;
+		this.position = posistion;
 	}
-	
-	
-	
+
+	public void goInField() {
+		// TODO Auto-generated method stub
+		
+	}	
 }

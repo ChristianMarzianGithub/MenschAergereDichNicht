@@ -15,20 +15,45 @@ public class main {
 		SpielBrett.addPlayer(EColor.Red);
 		SpielBrett.addPlayer(EColor.Green);
 		
+		
+		/* 
+		 * one SpielBrett has 4 Players
+		 * Every Player has 4 Figures 
+		 */
+		
 		while(true) {			
 			for(Player p: SpielBrett.getListOfPlayer()) {
 				
 				Figure f = p.getRandomFigure(p.getFigureList());
 				
-				p.moveFigure(f,p.roleDice());
+				p.tryToMoveFigure(f,p.roleDice());
+				
+				
+				System.out.println("Color: " + p.getColor());
+				
+				showPositionOfEveryFigureByPlayer(p);
+				
+				
+				
 				
 				try {
-					Thread.sleep(500);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		}		
+	}
+
+	private static void showPositionOfEveryFigureByPlayer(Player p) {
+		int i = 1;
+		for(Figure f: p.getFigureList()) {
+			System.out.println("Player with color: " + p.getColor()  + " and Figure No. " + i + " at Position "+  f.getPosistion().getFieldNr()
+								+ " in " + f.getPosistion().getBoardArea().getClass().getSimpleName()
+					
+					);
+			i++;
+		}
 	}
 }
