@@ -21,10 +21,18 @@ public class Player {
 	}
 
 	public int roleDice() {
-		return (int)(Math.random() * 6)+1;
+		return (int)(Math.random() * 6)+1;//we have to add 1 because otherwise it would get eventually to 0
 	}
 	
 	public int moveFigure(Figure choosenFigure, int amountOfStepsForward) {
+		
+		
+		
+		choosenFigure.getPosistion().setFieldNr(choosenFigure.getPosistion().getFieldNr() + amountOfStepsForward);
+		
+		
+		
+		
 		return 0;
 	}
 	

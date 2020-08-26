@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import enums.EColor;
 import model.Player;
+import model.BordArea.BoardArea;
+import model.BordArea.BoardAreaFactory;
 
 public class PlayerTest {
 
@@ -17,7 +19,10 @@ public class PlayerTest {
 		boolean retVal = false;
 		if((diceValue > 0)&&(diceValue < 7)) {
 			retVal = true;
-		}		
+		}
 		assertTrue(retVal);
 	}
+	
+	
+	
 }
